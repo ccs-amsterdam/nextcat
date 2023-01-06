@@ -1,6 +1,23 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import "fomantic-ui-css/semantic.min.css";
+
+import type { AppProps } from "next/app";
+import { MiddlecatWrapper } from "../amcat4react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { useState } from "react";
+import TopMenu from "../amcat4client/components/Menu/TopMenu";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  const [queryClient] = useState(() => new QueryClient());
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <MiddlecatWrapper loginRoute="/" bff="/api/bffAuth">
+        <TopMenu />
+        <div className="Container">
+          <Component {...pageProps} />
+        </div>
+      </MiddlecatWrapper>
+    </QueryClientProvider>
+  );
 }
