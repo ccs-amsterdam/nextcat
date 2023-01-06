@@ -1,4 +1,4 @@
-import { AmcatIndexName } from "../../amcat4react";
+import { AmcatIndexName } from "../amcat4react";
 
 export function link_index(host: string, index: AmcatIndexName) {
   return `${link_host(host)}/i/${index}`;

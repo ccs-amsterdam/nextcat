@@ -6,7 +6,7 @@ import {
   AggregationOptions,
   AmcatIndexName,
   AmcatQuery,
-} from "../../../amcat4react";
+} from "../../amcat4react";
 
 const initialState: AggregationOptions = {
   display: "linechart",

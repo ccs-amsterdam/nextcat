@@ -2,7 +2,7 @@ import { Amcat, AmcatField } from "../../../../../amcat4react";
 import { useState } from "react";
 import { Checkbox, Form, Header, Icon, Table } from "semantic-ui-react";
 import { useRouter } from "next/router";
-import useUser from "../../../../../amcat4client/hooks/useUser";
+import useUser from "../../../../../hooks/useUser";
 
 const FIELDS = [
   "date",

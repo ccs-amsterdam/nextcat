@@ -7,9 +7,9 @@ import {
   AmcatQuery,
   AmcatIndexName,
   AggregationOptions,
-} from "../../../amcat4react";
+} from "../../amcat4react";
 
-import { DisplayOption, MetricFunction } from "../../../amcat4react";
+import { DisplayOption, MetricFunction } from "../../amcat4react";
 
 import React, { Dispatch, SetStateAction } from "react";
 import { Button, Dropdown, Icon } from "semantic-ui-react";

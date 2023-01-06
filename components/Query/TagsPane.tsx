@@ -3,7 +3,7 @@ import {
   AmcatIndexName,
   AmcatQuery,
   AmcatUser,
-} from "../../../amcat4react";
+} from "../../amcat4react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import {
   Button,

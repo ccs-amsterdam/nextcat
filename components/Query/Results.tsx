@@ -4,7 +4,7 @@ import {
   Amcat,
   AmcatIndexName,
   AmcatUser,
-} from "../../../amcat4react";
+} from "../../amcat4react";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Menu } from "semantic-ui-react";
 import AggregateResultPanel from "../Aggregate/AggregateResultPanel";

@@ -7,7 +7,7 @@ import {
   Articles,
   AmcatQuery,
   AmcatUser,
-} from "../../../amcat4react";
+} from "../../amcat4react";
 
 import { useEffect, useState } from "react";
 import { Grid, Header } from "semantic-ui-react";
@@ -39,7 +39,7 @@ export default function Summary({ user, index, query }: SummaryProps) {
       .catch((e) => {
         console.log("Error in getting aggregate statistics");
       });
-  }, [index, query]);
+  }, [user, index, query]);
   if (index == null) return null;
 
   let interval: AggregationInterval = "day";

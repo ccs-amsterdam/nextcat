@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Dropdown, Menu } from "semantic-ui-react";
-import useIndices from "../../../amcat4react/hooks/useAmcatIndices";
+import useIndices from "../../amcat4react/hooks/useAmcatIndices";
 import { link_index } from "../../functions/links";
 import useUser from "../../hooks/useUser";
 

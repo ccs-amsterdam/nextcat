@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Modal } from "semantic-ui-react";
 import Article, { ArticleProps } from "./Article";
 import { useRouter } from "next/router";
-import { link_doc } from "../../../amcat4client/functions/links";
 
 /**
  * Show a single article
@@ -13,14 +12,10 @@ export default function ArticleModal({
   id,
   query,
   changeArticle,
+  link,
 }: ArticleProps) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
-
-  const link = window.location.href.replace(
-    router.asPath,
-    link_doc(user.resource, index, id)
-  );
 
   useEffect(() => {
     setOpen(true);

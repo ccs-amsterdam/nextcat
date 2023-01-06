@@ -1,9 +1,8 @@
 import { useRouter } from "next/router";
-import { QueryForm } from "../../../../../amcat4react";
-import Results from "../../../../../amcat4client/components/Query/Results";
 import { useState } from "react";
-import { AmcatQuery } from "../../../../../amcat4react";
-import useUser from "../../../../../amcat4client/hooks/useUser";
+import { QueryForm, AmcatQuery } from "../../../../../amcat4react";
+import Results from "../../../../../components/Query/Results";
+import useUser from "../../../../../hooks/useUser";
 
 export default function QueryPage() {
   const [query, setQuery] = useState<AmcatQuery>({});

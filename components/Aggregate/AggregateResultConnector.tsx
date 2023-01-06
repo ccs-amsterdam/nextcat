@@ -4,7 +4,7 @@ import {
   AmcatIndexName,
   AmcatQuery,
   AggregationOptions,
-} from "../../../amcat4react";
+} from "../../amcat4react";
 
 interface Props {
   user: AmcatUser;

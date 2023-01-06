@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { Article } from "../../../../../../amcat4react";
-import useUser from "../../../../../../amcat4client/hooks/useUser";
+import useUser from "../../../../../../hooks/useUser";
 
 export default function DocPage() {
   const user = useUser();

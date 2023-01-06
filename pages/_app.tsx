@@ -5,7 +5,7 @@ import type { AppProps } from "next/app";
 import { MiddlecatWrapper } from "../amcat4react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useState } from "react";
-import TopMenu from "../amcat4client/components/Menu/TopMenu";
+import TopMenu from "../components/Menu/TopMenu";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());

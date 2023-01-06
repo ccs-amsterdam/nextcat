@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
-import { AmcatUser } from "../../amcat4react";
-import { useMiddlecatContext } from "../../amcat4react/context/middlecat";
+import { AmcatUser, useMiddlecatContext } from "../amcat4react";
 
 export default function useUser(): AmcatUser | undefined {
   const router = useRouter();
