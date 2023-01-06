@@ -15,17 +15,30 @@ const StyleWrapper = styled.div`
   }
   .Indices {
   }
+  .LoginRedirect {
+    margin: auto;
+
+    span {
+      font-weight: bold;
+    }
+  }
 `;
 
 export default function Home() {
   const router = useRouter();
-  const host = router.query.host as string;
   const login_host = router.query.login_host as string;
-  const { user, AuthForm } = useMiddlecatContext(host);
+  const login_redirect = router.query.login_redirect as string;
+
+  const { user, AuthForm } = useMiddlecatContext();
 
   function onSelectIndex(index: string) {
     if (!user) return;
     router.push(`/h/${encodeURIComponent(user.resource)}/i/${index}/query`);
+  }
+
+  if (user && login_redirect) {
+    router.push(login_redirect);
+    return null;
   }
 
   return (
@@ -38,6 +51,14 @@ export default function Home() {
       </Head>
       <main>
         <StyleWrapper>
+          <div className="LoginRedirect">
+            {login_redirect ? (
+              <p>
+                To open <span>{decodeURIComponent(login_redirect)}</span> you
+                first need to login to <span>{login_host}</span>
+              </p>
+            ) : null}
+          </div>
           <div className="AuthForm">
             <AuthForm
               resourceFixed={login_host || undefined}

@@ -25,6 +25,8 @@ const StyleWrapper = styled.div`
 
   ul {
     font-size: 1.5rem;
+    list-style: none;
+
     & li {
       cursor: pointer;
       padding: 0.3rem;

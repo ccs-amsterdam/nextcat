@@ -55,7 +55,7 @@ export function MiddlecatWrapper({
   );
 }
 
-export function useMiddlecatContext(host: string) {
+export function useMiddlecatContext(host?: string) {
   let { user, loading, AuthForm, loginRoute } = useContext(MiddlecatContext);
 
   useEffect(() => {
