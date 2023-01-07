@@ -24,12 +24,7 @@ export default function Summary({ user, index, query }: SummaryProps) {
   const [metrics, setMetrics] = useState<Metric>();
 
   useEffect(() => {
-    console.log("render twice?");
-  }, []);
-
-  useEffect(() => {
     if (index == null) return;
-    console.log(user, index, query);
     Amcat.postAggregate(user, index, query, {
       display: "linechart",
       metrics: [
@@ -47,22 +42,6 @@ export default function Summary({ user, index, query }: SummaryProps) {
   }, [user, index, query]);
   if (index == null) return null;
 
-  let interval: AggregationInterval = "day";
-  if (metrics) {
-    const days =
-      (new Date(metrics.max_date).getTime() -
-        new Date(metrics.min_date).getTime()) /
-      (24 * 60 * 60 * 1000);
-    if (days > 30) interval = "week";
-    if (days > 90) interval = "month";
-    if (days > 600) interval = "year";
-  }
-  const options: AggregationOptions = {
-    display: "linechart",
-    axes: [{ name: "date", field: "date", interval: "month" }],
-  };
-  if (query?.queries && Object.keys(query.queries).length > 1)
-    options.axes?.push({ name: "", field: "_query" });
   return (
     <Grid textAlign="left" stackable reversed="mobile">
       <Grid.Column width={10}>
@@ -83,14 +62,57 @@ export default function Summary({ user, index, query }: SummaryProps) {
             {metrics.max_date?.substring(0, 10)}
           </Header>
         )}
-        <AggregateResult
+        <AutoAggregateResults
           user={user}
           index={index}
           query={query}
-          options={options as AggregationOptions}
-          height={300}
+          metrics={metrics}
         />
       </Grid.Column>
     </Grid>
+  );
+}
+
+interface AutoAggregateProps {
+  user: AmcatUser;
+  index: AmcatIndexName;
+  query: AmcatQuery;
+  metrics: Metric | undefined;
+}
+
+function AutoAggregateResults({
+  user,
+  index,
+  query,
+  metrics,
+}: AutoAggregateProps) {
+  if (!metrics) return null;
+
+  let interval: AggregationInterval = "day";
+
+  const days =
+    (new Date(metrics.max_date).getTime() -
+      new Date(metrics.min_date).getTime()) /
+    (24 * 60 * 60 * 1000);
+  if (days > 30) interval = "week";
+  if (days > 90) interval = "month";
+  if (days > 600) interval = "year";
+
+  const options: AggregationOptions = {
+    display: "linechart",
+    axes: [{ name: "date", field: "date", interval }],
+  };
+
+  if (query?.queries && Object.keys(query.queries).length > 1)
+    options.axes?.push({ name: "", field: "_query" });
+
+  return (
+    <AggregateResult
+      user={user}
+      index={index}
+      query={query}
+      options={options as AggregationOptions}
+      height={300}
+    />
   );
 }

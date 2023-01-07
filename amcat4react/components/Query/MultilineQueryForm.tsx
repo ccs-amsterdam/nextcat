@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Button, Form } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 import { useFields, getField } from "../../Amcat";
 import FilterPicker from "./FilterPicker";
 import { QueryFormProps } from "./QueryForm";
 import AddFilterButton, { fieldOptions } from "./AddFilterButton";
 import { queryFromString, queryToString } from "./libQuery";
 import styled from "styled-components";
+import { StyledButton } from "../../styled/StyledSemantic";
 
 const MultiLineForm = styled.div`
   display: grid;
@@ -105,7 +106,7 @@ export default function MultilineQueryForm({
           onKeyDown={handleKeyDown}
           value={q || ""}
         />
-        <Button
+        <StyledButton
           fluid
           primary
           content="Submit Query"
@@ -139,7 +140,7 @@ export default function MultilineQueryForm({
                 />
               </div>
               <div className="filterdelete">
-                <Button
+                <StyledButton
                   icon="delete"
                   circular
                   onClick={() => deleteFilter(f)}

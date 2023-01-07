@@ -78,8 +78,9 @@ export default function AggregateResultOptions({
     setOptions({ ...options, axes });
   }
   function submit() {
-    if (options != null) setOptions(options);
+    if (options != null) setOptions({ ...options, hold: false });
   }
+
   const labels = aggregation_labels[options.display || "list"];
   const displayoptions = DISPLAY.map((d, i) => (
     <React.Fragment key={d.value}>

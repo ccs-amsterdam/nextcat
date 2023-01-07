@@ -55,7 +55,12 @@ export default function AggregateResult({
     // Prevent data/error being set after component is unmounted
     let cancel = false;
     // TODO: don't query if index changed but options hasn't been reset (yet)
-    if (index == null || !options?.axes || options.axes.length === 0) {
+    if (
+      index == null ||
+      !options?.axes ||
+      options.axes.length === 0 ||
+      options.hold
+    ) {
       setData(undefined);
       setError(undefined);
     } else {
@@ -77,7 +82,13 @@ export default function AggregateResult({
       cancel = true;
     };
   }, [user, index, options, query]);
-
+  <AggregateResult
+    user={user}
+    index={index}
+    query={query}
+    options={options as AggregationOptions}
+    height={300}
+  />;
   if (error) return <Message error header={error} />;
   if (!data || !options || !options.display)
     return <Message info header="Select aggregation options" />;

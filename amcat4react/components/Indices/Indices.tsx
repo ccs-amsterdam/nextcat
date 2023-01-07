@@ -46,6 +46,7 @@ export default function Indices({ user, onSelect }: Props) {
   const indices = useAmcatIndices(user);
   if (indices.isLoading) return <Response.LoadingScreen />;
   if (indices.isError) return <Response.ErrorScreen />;
+
   if (user == null || indices.data == null) return null;
 
   return (

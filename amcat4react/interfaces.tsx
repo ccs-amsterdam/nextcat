@@ -55,6 +55,8 @@ export interface AggregationOptions {
   metrics?: AggregationMetric[];
   /* Limit the number of rows/lines/bars */
   limit?: number;
+  /* If true, do not yet present results */
+  hold?: boolean;
 }
 
 export interface DateFilter {

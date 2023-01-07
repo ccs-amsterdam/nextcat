@@ -10,6 +10,7 @@ import {
 
 const initialState: AggregationOptions = {
   display: "linechart",
+  hold: true,
   axes: [{ field: "date", name: "date", interval: "month" }],
 };
 
