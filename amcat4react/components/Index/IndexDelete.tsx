@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Button, Header, Icon, Modal, Dimmer, Loader } from "semantic-ui-react";
+import { Header, Icon, Modal, Dimmer, Loader } from "semantic-ui-react";
 import { deleteIndex } from "../../Amcat";
 import { AmcatIndexName, AmcatUser } from "../../interfaces";
+import { StyledButton } from "../../styled/StyledSemantic";
 
 interface IndexDeleteProps {
   user: AmcatUser;
@@ -60,12 +61,12 @@ export default function IndexDelete({
           </Dimmer>
         ) : (
           <>
-            <Button color="red" onClick={() => onClose(false)}>
+            <StyledButton color="red" onClick={() => onClose(false)}>
               <Icon name="remove" /> No
-            </Button>
-            <Button color="green" onClick={onSubmit}>
+            </StyledButton>
+            <StyledButton color="green" onClick={onSubmit}>
               <Icon name="checkmark" /> Yes
-            </Button>
+            </StyledButton>
           </>
         )}
       </Modal.Actions>

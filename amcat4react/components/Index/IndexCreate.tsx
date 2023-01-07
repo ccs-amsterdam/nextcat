@@ -1,13 +1,13 @@
 import { SyntheticEvent, useState } from "react";
 import {
   Header,
-  Button,
   Modal,
   Form,
   Dropdown,
   Loader,
   Dimmer,
 } from "semantic-ui-react";
+import { StyledButton } from "../../styled/StyledSemantic";
 import { createIndex, getIndex } from "../../Amcat";
 import { AmcatUser } from "../../interfaces";
 
@@ -129,7 +129,12 @@ export default function IndexCreate({ open, user, onClose }: IndexCreateProps) {
             <Loader content="Creating Index" />
           </Dimmer>
         ) : (
-          <Button type="submit" color="green" icon="save" content="Create" />
+          <StyledButton
+            type="submit"
+            color="green"
+            icon="save"
+            content="Create"
+          />
         )}
       </Modal.Actions>
     </Modal>

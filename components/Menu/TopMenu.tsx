@@ -1,10 +1,20 @@
 import { useRouter } from "next/router";
 import { Menu } from "semantic-ui-react";
+import styled from "styled-components";
 import { link_index } from "../../functions/links";
 import useUser from "../../hooks/useUser";
 
 import AccountMenu from "./AccountMenu";
 import IndexMenu from "./IndexMenu";
+
+const StyledMenu = styled(Menu)`
+  border-radius: 0 !important;
+  box-shadow: 4px 0px 5px black !important;
+
+  .item {
+    color: white !important;
+  }
+`;
 
 export default function TopMenu() {
   const user = useUser();
@@ -12,7 +22,7 @@ export default function TopMenu() {
   const index = router.query.i as string;
 
   return (
-    <Menu inverted>
+    <StyledMenu inverted>
       <Menu.Menu position="left">
         {user == null || index == null ? null : (
           <>
@@ -38,6 +48,6 @@ export default function TopMenu() {
         <IndexMenu />
         <AccountMenu />
       </Menu.Menu>
-    </Menu>
+    </StyledMenu>
   );
 }

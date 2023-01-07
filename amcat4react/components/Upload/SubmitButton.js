@@ -1,13 +1,13 @@
 import { useState } from "react";
 import {
   Container,
-  Button,
   Message,
   Dimmer,
   Loader,
   Modal,
   Header,
 } from "semantic-ui-react";
+import { StyledButton } from "../../styled/StyledSemantic";
 import { createDocuments } from "../../Amcat";
 
 const REQUIRED_FIELDS = ["title", "date", "text"];
@@ -69,13 +69,13 @@ export default function SubmitButton({ index, data, columns, fields, reset }) {
       </Dimmer>
       {missingRequiredMessage()}
 
-      <Button
+      <StyledButton
         disabled={notReady || missingRequired.length > 0}
         fluid
         onClick={onSubmit}
       >
         Upload Articles
-      </Button>
+      </StyledButton>
       <SubmittedMessage
         submittedMessage={submittedMessage}
         setSubmittedMessage={setSubmittedMessage}

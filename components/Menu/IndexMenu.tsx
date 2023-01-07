@@ -30,7 +30,10 @@ export default function IndexMenu({}) {
           ? null
           : indices.data.map((index, i) => (
               <Menu.Item key={i}>
-                <Link href={`${link_index(user.resource, index?.name)}/query`}>
+                <Link
+                  style={{ color: "var(--secondary)" }}
+                  href={`${link_index(user.resource, index?.name)}/query`}
+                >
                   {index.name}
                 </Link>
               </Menu.Item>

@@ -76,7 +76,8 @@ export default function AggregateResult({
     return () => {
       cancel = true;
     };
-  }, [index, options, query, setData, setError]);
+  }, [user, index, options, query]);
+
   if (error) return <Message error header={error} />;
   if (!data || !options || !options.display)
     return <Message info header="Select aggregation options" />;

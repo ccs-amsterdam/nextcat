@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useAmcatIndices, Response, AmcatUser } from "../../../amcat4react";
-import { Button } from "../../styled/Style";
 
 const StyleWrapper = styled.div`
   box-sizing: border-box;

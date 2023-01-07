@@ -1,4 +1,5 @@
-import { Button, Icon, Popup } from "semantic-ui-react";
+import { Icon, Popup } from "semantic-ui-react";
+import { StyledButton } from "../../styled/StyledSemantic";
 import {
   AmcatUser,
   AmcatField,
@@ -6,6 +7,10 @@ import {
   AmcatIndexName,
 } from "../../interfaces";
 import { filterLabel, FilterPopup } from "./FilterPopups";
+
+// this is needed to make a styled components version of
+// semantic ui's Button work as a Popup trigger...
+const RefButton = (props: any) => <StyledButton {...props} />;
 
 interface FilterPickerProps {
   user: AmcatUser;
@@ -32,12 +37,12 @@ export default function FilterPicker({
       on="click"
       position="bottom center"
       trigger={
-        <Button {...props} className="valuepicker">
+        <RefButton {...props} className="valuepicker">
           {onDelete == null ? null : (
             <Icon link name="delete" onClick={onDelete} />
           )}
           {filterLabel(field, value, true)}
-        </Button>
+        </RefButton>
       }
     >
       <FilterPopup

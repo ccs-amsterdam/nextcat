@@ -3,7 +3,7 @@ import { Button, Form } from "semantic-ui-react";
 import { useFields, getField } from "../../Amcat";
 import FilterPicker from "./FilterPicker";
 import { QueryFormProps } from "./QueryForm";
-import { AddFilterButton, fieldOptions } from "./SimpleQueryForm";
+import AddFilterButton, { fieldOptions } from "./AddFilterButton";
 import { queryFromString, queryToString } from "./libQuery";
 import styled from "styled-components";
 

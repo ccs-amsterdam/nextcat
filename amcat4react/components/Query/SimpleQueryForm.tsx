@@ -1,17 +1,10 @@
 import { useEffect, useState } from "react";
-import { Button, Icon, Input, Popup } from "semantic-ui-react";
-import { AmcatField } from "../../interfaces";
-import { useFields, getField, getFieldTypeIcon } from "../../Amcat";
-import { AmcatQuery } from "../../interfaces";
+import { Input } from "semantic-ui-react";
+import { useFields, getField } from "../../Amcat";
 import FilterPicker from "./FilterPicker";
 import { queryFromString, queryToString } from "./libQuery";
 import { QueryFormProps } from "./QueryForm";
-
-export function fieldOptions(fields: AmcatField[], query: AmcatQuery) {
-  return fields
-    .filter((f) => !Object.keys(query?.filters || {}).includes(f.name))
-    .filter((f) => ["date", "keyword", "tag"].includes(f.type));
-}
+import AddFilterButton, { fieldOptions } from "./AddFilterButton";
 
 export default function SimpleQueryForm({
   user,
@@ -74,56 +67,5 @@ export default function SimpleQueryForm({
         onClick={addFilter}
       />
     </div>
-  );
-}
-
-interface AddFilterProps {
-  options: AmcatField[];
-  onClick: (value: string) => void;
-  addFilterLabel?: string;
-}
-export function AddFilterButton({
-  options,
-  onClick,
-  addFilterLabel,
-}: AddFilterProps) {
-  const [addOpen, setAddOpen] = useState(false);
-  return (
-    <Popup
-      open={addOpen}
-      onOpen={() => setAddOpen(true)}
-      onClose={() => setAddOpen(false)}
-      on="click"
-      trigger={
-        <Button primary circular>
-          <Icon.Group>
-            <Icon name="filter" />
-            <Icon corner name="add" color="blue" />
-          </Icon.Group>
-          <span className="addfiltertext">
-            {addFilterLabel || "Add Filter"}
-          </span>
-        </Button>
-      }
-    >
-      <b>{addFilterLabel || "Add Filter"}</b>
-      <br />
-      <Button.Group basic vertical>
-        {options.map((f) => (
-          <Button
-            key={f.name}
-            icon
-            labelPosition="left"
-            onClick={() => {
-              setAddOpen(false);
-              onClick(f.name);
-            }}
-          >
-            <Icon name={getFieldTypeIcon(f.type)} />
-            {f.name}
-          </Button>
-        ))}
-      </Button.Group>
-    </Popup>
   );
 }

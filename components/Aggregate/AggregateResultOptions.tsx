@@ -12,7 +12,8 @@ import {
 import { DisplayOption, MetricFunction } from "../../amcat4react";
 
 import React, { Dispatch, SetStateAction } from "react";
-import { Button, Dropdown, Icon } from "semantic-ui-react";
+import { Dropdown, Icon } from "semantic-ui-react";
+import { StyledButton } from "../../amcat4react/styled/StyledSemantic";
 import { SemanticICONS } from "semantic-ui-react/dist/commonjs/generic";
 
 const INTERVALS = [
@@ -82,8 +83,8 @@ export default function AggregateResultOptions({
   const labels = aggregation_labels[options.display || "list"];
   const displayoptions = DISPLAY.map((d, i) => (
     <React.Fragment key={d.value}>
-      {i === 0 ? null : <Button.Or key={"or_" + d.value} />}
-      <Button
+      {i === 0 ? null : <StyledButton.Or key={"or_" + d.value} />}
+      <StyledButton
         key={d.value}
         active={d.value === options.display}
         toggle
@@ -91,7 +92,7 @@ export default function AggregateResultOptions({
       >
         <Icon key={d.value} name={d.icon} />
         {d.text}
-      </Button>
+      </StyledButton>
     </React.Fragment>
   ));
 
@@ -100,7 +101,7 @@ export default function AggregateResultOptions({
       <div className="aggregateoptionsrow">
         <div className="label">Display as</div>
         <div className="option">
-          <Button.Group>{displayoptions}</Button.Group>
+          <StyledButton.Group>{displayoptions}</StyledButton.Group>
         </div>
       </div>
       <div className="aggregateoptionsrow">
@@ -145,9 +146,9 @@ export default function AggregateResultOptions({
         </div>
       </div>
 
-      <Button primary onClick={submit}>
+      <StyledButton primary onClick={submit}>
         Submit
-      </Button>
+      </StyledButton>
     </div>
   );
 }

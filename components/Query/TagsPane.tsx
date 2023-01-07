@@ -5,15 +5,8 @@ import {
   AmcatUser,
 } from "../../amcat4react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import {
-  Button,
-  Confirm,
-  Form,
-  Icon,
-  Input,
-  Label,
-  Table,
-} from "semantic-ui-react";
+import { Confirm, Form, Icon, Input, Label, Table } from "semantic-ui-react";
+import { StyledButton } from "../../amcat4react/styled/StyledSemantic";
 import { Metric } from "./Summary";
 
 interface TagsPaneProps {
@@ -218,24 +211,24 @@ function TagTable({
               </Table.Cell>
               <Table.Cell>{tag.n} Documents</Table.Cell>
               <Table.Cell collapsing>
-                <Button
+                <StyledButton
                   basic
                   primary
                   icon="filter"
                   onClick={() => doFilter(tag)}
                 >
                   Filter
-                </Button>
+                </StyledButton>
               </Table.Cell>
               <Table.Cell collapsing>
-                <Button
+                <StyledButton
                   basic
                   negative
                   icon="minus"
                   onClick={() => setConfirm(tag)}
                 >
                   Remove from selection
-                </Button>
+                </StyledButton>
               </Table.Cell>
             </Table.Row>
           ))}
@@ -296,10 +289,10 @@ function AddToTag({
             onChange={(_, d) => setTagName(d.value as string)}
           />
           &nbsp;&nbsp;
-          <Button type="submit" positive onClick={submit}>
+          <StyledButton type="submit" positive onClick={submit}>
             <Icon name="add" />
             Add documents
-          </Button>
+          </StyledButton>
         </Form.Group>
       </Form>
     </>

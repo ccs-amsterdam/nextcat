@@ -24,7 +24,12 @@ export default function Summary({ user, index, query }: SummaryProps) {
   const [metrics, setMetrics] = useState<Metric>();
 
   useEffect(() => {
+    console.log("render twice?");
+  }, []);
+
+  useEffect(() => {
     if (index == null) return;
+    console.log(user, index, query);
     Amcat.postAggregate(user, index, query, {
       display: "linechart",
       metrics: [

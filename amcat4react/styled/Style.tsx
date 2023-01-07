@@ -10,20 +10,20 @@ export const Loading = styled.div`
   animation: spin 1s linear infinite;
 `;
 
-export const Button = styled.button`
-  width: 100%;
-  background: white;
-  border: 2px solid var(--primary);
-  font-size: inherit;
-  max-width: 400px;
-  padding: 1rem 2rem;
-  border-radius: 10px;
-  transition: background 0.3s;
+// export const Button = styled.button`
+//   width: 100%;
+//   background: white;
+//   border: 2px solid var(--primary);
+//   font-size: inherit;
+//   max-width: 400px;
+//   padding: 1rem 2rem;
+//   border-radius: 10px;
+//   transition: background 0.3s;
 
-  &:hover:enabled {
-    color: white;
-    cursor: pointer;
+//   &:hover:enabled {
+//     color: white;
+//     cursor: pointer;
 
-    background: var(--primary);
-  }
-`;
+//     background: var(--primary);
+//   }
+// `;

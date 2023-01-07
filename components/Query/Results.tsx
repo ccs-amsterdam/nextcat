@@ -24,7 +24,6 @@ export default function Results({
   query,
   setQuery,
 }: ResultsProps) {
-  console.log("render");
   let items = ["Summary", "Articles", "Graph/Table", "Tags"];
   const [selected, setSelected] = useState<string>(items[0]);
 

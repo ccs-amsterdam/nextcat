@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Dropdown, Button, DropdownItemProps } from "semantic-ui-react";
+import { Dropdown, DropdownItemProps } from "semantic-ui-react";
+import { StyledButton } from "../../styled/StyledSemantic";
 import { getIndices } from "../../Amcat";
 import { AmcatUser, AmcatIndexName } from "../../interfaces";
 
@@ -55,7 +56,7 @@ export default function IndexPicker({
       </div>
 
       <div style={{ flex: "0 1 auto" }}>
-        <Button.Group
+        <StyledButton.Group
           style={{ marginLeft: canDelete || canCreate ? "5px" : "0" }}
         >
           {!canCreate ? null : (
@@ -68,7 +69,7 @@ export default function IndexPicker({
               onDelete={handleDelete}
             />
           )}
-        </Button.Group>
+        </StyledButton.Group>
       </div>
     </div>
   );
@@ -91,7 +92,11 @@ const IndexCreateButton = ({ user, onCreate }: CreateButtonProps) => {
   };
   return (
     <>
-      <Button icon="plus" style={buttonStyle} onClick={() => setOpen(true)} />
+      <StyledButton
+        icon="plus"
+        style={buttonStyle}
+        onClick={() => setOpen(true)}
+      />
       <IndexCreate user={user} onClose={handleClose} open={open} />
     </>
   );
@@ -114,7 +119,7 @@ const IndexDeleteButton = ({ user, index, onDelete }: DeleteButtonProps) => {
   };
   return (
     <>
-      <Button
+      <StyledButton
         disabled={!index}
         icon="minus"
         style={buttonStyle}
