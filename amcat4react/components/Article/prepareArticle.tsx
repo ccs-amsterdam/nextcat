@@ -69,11 +69,16 @@ const splitParagraphs = (text: string) => {
 
   const linebreak = (i: number) => {
     if (i === paragraphs.length - 1) return null;
-    return <br style={{ lineHeight: "1em" }} />;
+    return (
+      <>
+        <br />
+        <br />
+      </>
+    );
   };
 
-  // this looks like a bad solution, but we can't use tags to encapsulate paragraphs
-  // due to the span annotations
+  // this looks needlessly complex, but we can't use tags to encapsulate paragraphs
+  // due to the span annotations, so we add line breaks manually
   // [WvA] and I presume this is where the unique key warning comes from. But not 100% sure...
   return paragraphs.map((p, i) => (
     <>

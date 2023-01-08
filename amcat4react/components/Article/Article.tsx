@@ -161,9 +161,9 @@ function TextField({ article, field, layout, label }: TextFieldProps) {
         </span>
       )}
       {paragraphs.map((p: any, i: number) => (
-        <p key={`${field}_${i}`} style={fieldLayout}>
+        <span key={`${field}_${i}`} style={fieldLayout}>
           {p}
-        </p>
+        </span>
       ))}
     </div>
   );
