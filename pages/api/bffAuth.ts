@@ -7,5 +7,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const cookies = new Cookies(req, res);
-  return await bffAuthHandler(req, res, cookies);
+  const maxAge = undefined;
+  const secure = process.env.NODE_ENV === "production" ? true : false;
+  return await bffAuthHandler(req, res, cookies, maxAge, secure);
 }
