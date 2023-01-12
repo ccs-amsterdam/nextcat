@@ -7,8 +7,5 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const cookies = new Cookies(req, res);
-  const maxAge = undefined;
-  //const secure = process.env.NODE_ENV === "production" ? true : false;
-  const secure = false; // somehow doesn't work when hosted on netlify
-  return await bffAuthHandler(req, res, cookies, maxAge, secure);
+  return await bffAuthHandler(req, res, cookies);
 }

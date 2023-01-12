@@ -107,6 +107,20 @@ a {
   cursor: pointer;
 }
 
+.snippets h4 {
+  color: var(--secondary);
+  margin-bottom: 0.2rem;
+}
+
+.snippets .snippet {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.snippets .description {
+  margin-top: 0.2rem;
+}
+
 .snippets .item:hover {
   background-color: #fafafa;
 }
@@ -219,7 +233,7 @@ a {
 }
 
 .chevron {
-  color: darkblue;
+  color: var(--secondary);
   padding: 0;
   z-index: 99;
 }

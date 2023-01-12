@@ -1,5 +1,6 @@
 import { List } from "semantic-ui-react";
 import { AmcatDocument } from "../../interfaces";
+import { Snippet } from "../../styled/Style";
 import {
   highlightElasticTags,
   removeElasticTags,
@@ -13,7 +14,7 @@ import {
 function snippetText(row: AmcatDocument) {
   const text = row.text as string;
   if (text && text.includes("<em>")) return highlightElasticTags(text);
-  return text.substring(0, 100) + "...";
+  return text;
 }
 
 export default function ArticleSnippets({
@@ -35,12 +36,12 @@ export default function ArticleSnippets({
         {data.map((row, i) => (
           <List.Item key={i}>
             <List.Content onClick={() => onClick(row)}>
-              <List.Header as="a">
+              <h4>
                 <span title={removeElasticTags(row.title || "")}>
                   {highlightElasticTags(row.title || "")}
                 </span>
-              </List.Header>
-              <span>{snippetText(row)}</span>
+              </h4>
+              <Snippet lines={2}>{snippetText(row)}</Snippet>
               <List.Description>{meta(row)}</List.Description>
             </List.Content>
           </List.Item>

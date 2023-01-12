@@ -10,6 +10,19 @@ export const Loading = styled.div`
   animation: spin 1s linear infinite;
 `;
 
+interface SnippetProps {
+  // number of lines to show
+  lines: number;
+}
+
+export const Snippet = styled.div<SnippetProps>`
+  display: -webkit-box;
+  -webkit-line-clamp: ${(p) => p.lines || 2};
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
 // export const Button = styled.button`
 //   width: 100%;
 //   background: white;
