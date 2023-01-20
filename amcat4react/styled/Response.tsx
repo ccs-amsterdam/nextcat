@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Loading } from "./Style";
 
 const MessageContainer = styled.div`
-  margin: auto;
+  text-align: center;
   position: relative;
 `;
 
